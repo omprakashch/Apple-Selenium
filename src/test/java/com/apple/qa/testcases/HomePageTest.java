@@ -63,7 +63,7 @@ public class HomePageTest  extends CommonElements{
 	public void verifyHeaderListCount(){
 		ExecutionStartLog("verifyHeaderListCount");
 		HomePage homePage = new HomePage();
-		Assert.assertTrue(homePage.getHeaderList().size()==12, "Header List Count Displayed Incorrectly");	
+		Assert.assertTrue(homePage.getHeaderList().size()==13, "Header List Count Displayed Incorrectly");	
 		ExecutionEndLog("verifyHeaderListCount");
 	}
 	/*
