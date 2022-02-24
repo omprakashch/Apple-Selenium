@@ -175,7 +175,6 @@ public class TestUtil extends TestBase{
 
 	public static String takeScreenshotAtEndOfTest() throws IOException {
 	File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-	String currentDir = System.getProperty("user.dir");
 	String destination = "/screenshots/" + System.currentTimeMillis() + ".png";
 	FileUtils.copyFile(srcFile, new File(destination));	
 	return destination;
