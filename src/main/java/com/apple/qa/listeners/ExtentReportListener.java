@@ -45,7 +45,7 @@ public class ExtentReportListener implements ITestListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		ExtentTestManager.getTest().log(Status.FAIL,MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		ExtentTestManager.getTest().log(Status.FAIL,MediaEntityBuilder.createScreenCaptureFromPath("../screenshots/"+screenshotPath).build());
 		ExtentTestManager.getTest().log(Status.FAIL, result.getThrowable());
 	}
 

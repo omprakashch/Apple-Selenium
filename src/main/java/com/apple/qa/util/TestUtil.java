@@ -177,7 +177,7 @@ public class TestUtil extends TestBase{
 	File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	String currentDirectory = System.getProperty("user.dir");
 	long currentTime = System.currentTimeMillis();
-	String destination = currentDirectory + "/TestReport/" + currentTime + ".png";
+	String destination = currentDirectory + "/screenshots/" + currentTime + ".png";
 	FileUtils.copyFile(srcFile, new File(destination));	
 	String screenshotPath = currentTime + ".png";
 	return screenshotPath;
