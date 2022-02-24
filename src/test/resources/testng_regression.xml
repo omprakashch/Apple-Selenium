@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Target Application Test Automation Test Suite" verbose="1" parallel = "methods" thread-count="1" >
+<suite name="Apple Application Test Automation Suite" verbose="1" parallel = "methods" thread-count="1" >
 
 	 <listeners>
 		<listener class-name="com.apple.qa.listeners.ExtentReportListener" />
 	</listeners>
 
 
-	<test name="Target App Test Cases">
+	<test name="Apple App Test Cases">
 		<classes>
 			<class name="com.apple.qa.testcases.HomePageTest"/>	
 			<!-- <class name="com.target.qa.testcases.ClearancePageTest"/>
