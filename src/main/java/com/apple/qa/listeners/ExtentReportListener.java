@@ -43,7 +43,6 @@ public class ExtentReportListener implements ITestListener {
 		try {
 			screenshotPath = TestUtil.takeScreenshotAtEndOfTest();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		ExtentTestManager.getTest().log(Status.FAIL,MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
