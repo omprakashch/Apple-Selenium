@@ -42,7 +42,6 @@ public class ExtentReportListener implements ITestListener {
 		String screenshotPath = null;
 		try {
 			screenshotPath = TestUtil.takeScreenshotAtEndOfTest();
-			System.out.println("Screenshot Path : "+screenshotPath);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
