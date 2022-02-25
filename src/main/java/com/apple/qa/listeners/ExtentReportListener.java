@@ -29,6 +29,8 @@ public class ExtentReportListener implements ITestListener {
 	public void onTestStart(ITestResult result) {
 		System.out.println(("*** Running test method " + result.getMethod().getMethodName() + "..."));
 		ExtentTestManager.startTest(result.getMethod().getMethodName());
+		ExtentTestManager.getTest().log(Status.INFO, "Class Name Along With Package : " +result.getTestClass().getName());
+		ExtentTestManager.getTest().log(Status.INFO, "URL : " +TestBase.prop.getProperty("url"));
 	}
 
 	public void onTestSuccess(ITestResult result) {

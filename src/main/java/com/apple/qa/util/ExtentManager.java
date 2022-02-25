@@ -23,7 +23,7 @@ public class ExtentManager extends TestBase{
  
     //Create an extent report instance
     public static ExtentReports createInstance() {
-    	 extent = new ExtentReports();
+    	extent = new ExtentReports();
     	String fileName = getReportPath(reportFilepath);
         ExtentSparkReporter spark = new ExtentSparkReporter(fileName);
         //htmlReporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);
@@ -40,6 +40,7 @@ public class ExtentManager extends TestBase{
 		extent.setSystemInfo("OS", "Windows");
 		extent.setSystemInfo("AUT", "Prakash");
 		extent.setSystemInfo("Browser", browserName);
+		extent.setSystemInfo("Environment", prop.getProperty("env"));
  
         return extent;
     }
