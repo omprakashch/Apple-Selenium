@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import com.apple.qa.base.TestBase;
 import com.apple.qa.pages.HomePage;
-import com.apple.qa.pages.SignInPage;
+import com.apple.qa.pages.MacPage;
 import com.apple.qa.util.CommonElements;
 import com.apple.qa.util.TestUtil;
 

@@ -9,12 +9,13 @@
 
 	<test name="Apple App Test Cases">
 		<classes>
-			<class name="com.apple.qa.testcases.HomePageTest"/>	
-			<!-- <class name="com.target.qa.testcases.ClearancePageTest"/>
-			<class name="com.target.qa.testcases.RedCardExclusivesPageTest"/>
-			<class name="com.target.qa.testcases.TargetCircleOffersPageTest"/>
-			<class name="com.target.qa.testcases.TopDealsPageTest"/>
-			<class name="com.target.qa.testcases.WeeklyAdPageTest"/> -->
+			<class name="com.apple.qa.testcases.AirPodsPageTest"/>
+			<class name="com.apple.qa.testcases.HomePageTest"/>
+			<class name="com.apple.qa.testcases.IPadPageTest"/>
+			<class name="com.apple.qa.testcases.IPhonePageTest"/>
+			<class name="com.apple.qa.testcases.MacPageTest"/>
+			<class name="com.apple.qa.testcases.TVAndHomePageTest"/>
+			<class name="com.apple.qa.testcases.WatchPageTest"/>	
 		</classes>
 	</test>
 </suite>

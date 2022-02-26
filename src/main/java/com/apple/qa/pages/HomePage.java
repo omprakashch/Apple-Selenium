@@ -23,12 +23,6 @@ public class HomePage extends CommonElements{
 	@FindBy(xpath = "//div[@data-unit-id='macbook-pro']")
 	WebElement MacBookProSection;
 	
-	@FindBy(xpath = "//span[contains(text(),'my account')]/following-sibling::span")
-	WebElement AccountName;
-	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]/div/ul[contains(@class,'list')]/li")
-	List<WebElement> HeaderList;
-	
 	
 	public HomePage(){
 		PageFactory.initElements(driver, this);
@@ -45,15 +39,7 @@ public class HomePage extends CommonElements{
 	public void clickSignInIcon(){
 		click(SignInIcon,"SignInIcon");
 	}*/
-	
-	public String getAccountName(){
-		return AccountName.getText();
-	}
 
-	@Step("getting signin option list step... ")
-	public List<WebElement> getHeaderList() {
-		return HeaderList;
-	}
 
 	@Step("getting IPhone13 Pro Section step... ")
 	public boolean isIPhone13ProPresent() {

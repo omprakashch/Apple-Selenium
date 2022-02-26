@@ -46,10 +46,11 @@ public class TestUtil extends TestBase{
 		return element;	
 	}
 	
-	public void click(String elementPath){
+	public void click(String elementPath, String elementName){
 		WebDriverWait wait = new WebDriverWait(driver,25);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementPath)));
+		wait.until(ExpectedConditions.elementToBeClickable(getElement(elementPath)));
 		getElement(elementPath).click();
+		logInfo("Clicked On "+elementName);
 	}
 	
 	public void click(WebElement element,String elementName){
@@ -60,33 +61,49 @@ public class TestUtil extends TestBase{
 	}
 	
 	public String getText(String elementPath){
+		WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.visibilityOf(getElement(elementPath)));
 		return getElement(elementPath).getText();
 	}
 	
 	public String getText(WebElement element){
+		 WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.visibilityOf(element));
 		return element.getText();
 	}
 	
 	public String getAttribute(String elementPath){
+		 WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.visibilityOf(getElement(elementPath)));
 		return getElement(elementPath).getAttribute("value");
 	}
 	
 	public String getAttribute(WebElement element){
+		 WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.visibilityOf(element));
 		return element.getAttribute("value");
 	}
 	
 	public void enterText(String elementPath, String inputText,String elementName){
+		 WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.elementToBeClickable(getElement(elementPath)));
 		getElement(elementPath).sendKeys(inputText);
 		logInfo("Entered "+elementName);
 	}
 	
 	public void enterText(WebElement element, String inputText,String elementName){
+		 WebDriverWait wait = new WebDriverWait(driver,25);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.sendKeys(inputText);
 		logInfo("Entered "+elementName);
 	}
 	
 	public String getPageTitle(){
 		return driver.getTitle();
+	}
+	
+	public String getUrl(){
+		return driver.getCurrentUrl();
 	}
 	
 	public void pause(long sec){
@@ -128,8 +145,9 @@ public class TestUtil extends TestBase{
 	
 	public boolean isElementPresent(String elementPath){
 		boolean flag = false;
+		 WebDriverWait wait = new WebDriverWait(driver,25);
 		try{
-			flag = getElement(elementPath).isDisplayed();
+			flag = wait.until(ExpectedConditions.visibilityOf(getElement(elementPath))).isDisplayed();
 		}
 		catch(Exception e){
 			flag = false;
@@ -139,8 +157,9 @@ public class TestUtil extends TestBase{
 	
 	public boolean isElementPresent(WebElement element){
 		boolean flag = false;
+		 WebDriverWait wait = new WebDriverWait(driver,25);
 		try{
-			flag = element.isDisplayed();
+			flag = wait.until(ExpectedConditions.visibilityOf(element)).isDisplayed();
 		}
 		catch(Exception e){
 			flag = false;
