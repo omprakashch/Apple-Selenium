@@ -10,32 +10,37 @@ import com.apple.qa.base.TestBase;
 import com.apple.qa.util.CommonElements;
 import com.apple.qa.util.TestUtil;
 
-public class SignInPage extends CommonElements{
+public class MacPage extends CommonElements{
 	
-	@FindBy(xpath = "//input[@name='username']")
-	WebElement emailInputField;
+	@FindBy(xpath = "//div[@id='compare-gallery-notebook']")
+	WebElement NotebookSection;
 	
-	@FindBy(xpath = "//input[@name='password']")
-	WebElement passwordInputField;
+	@FindBy(xpath = "//span[text()='Desktop']/..")
+	WebElement DesktopTab;
 	
-	@FindBy(xpath = "//button[@id='login']")
-	WebElement signInButton;
+	@FindBy(xpath = "//div[@id='compare-gallery-desktop']")
+	WebElement DesktopSection;
 	
-	@FindBy(xpath = "//a[contains(text(),'Skip')]")
-	WebElement skipLink;
+	@FindBy(xpath = "//h2[contains(text(),'Which Mac')]")
+	WebElement WhichMacText;
 	
 	
-	public SignInPage(){
+	public MacPage(){
 		PageFactory.initElements(driver, this);
 	}
 	
-	public HomePage Login(String userName, String password){
-		enterText(emailInputField,prop.getProperty(userName),"User Name");
-		enterText(passwordInputField,prop.getProperty(password),"Password");
-		logInfo("Entered User Name "+userName+" and Password "+password);
-		click(signInButton,"signInButton");
-		//click(skipLink);
-		return new HomePage();
+	public boolean isNotebookSectionPresent() {
+		scrollToAndView(WhichMacText);
+		return isElementPresent(NotebookSection);
+	}
+	
+	public boolean isDesktopSectionPresent() {
+		scrollToAndView(WhichMacText);
+		return isElementPresent(DesktopSection);
+	}
+	
+	public void clickDesktop(){
+		click(DesktopTab,"Desktop Tab");
 	}
 
 }
