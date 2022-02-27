@@ -9,11 +9,15 @@
 
 	<test name="Apple App Test Cases">
 		<classes>
+			<class name="com.apple.qa.testcases.AccessoriesPageTest"/>
 			<class name="com.apple.qa.testcases.AirPodsPageTest"/>
 			<class name="com.apple.qa.testcases.HomePageTest"/>
 			<class name="com.apple.qa.testcases.IPadPageTest"/>
 			<class name="com.apple.qa.testcases.IPhonePageTest"/>
 			<class name="com.apple.qa.testcases.MacPageTest"/>
+			<class name="com.apple.qa.testcases.OnlyOnApplePageTest"/>
+			<class name="com.apple.qa.testcases.StorePageTest"/>
+			<class name="com.apple.qa.testcases.SupportPageTest"/>
 			<class name="com.apple.qa.testcases.TVAndHomePageTest"/>
 			<class name="com.apple.qa.testcases.WatchPageTest"/>	
 		</classes>
