@@ -1,5 +1,7 @@
 package com.apple.qa.pages;
 
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -12,31 +14,27 @@ import com.apple.qa.util.TestUtil;
 
 public class TVAndHomePage extends CommonElements{
 	
-	@FindBy(xpath = "//h2[contains(text(),'Health app')]/../../following-sibling::div")
-	WebElement HealthAppSection;
+	@FindBy(xpath = "//nav[contains(@id,'chapternav')]/div/ul[contains(@class,'items')]/li")
+	List<WebElement> TVAndHomeHeaderList;
 	
-	@FindBy(xpath = "//h2[contains(text(),'Health app')]")
-	WebElement HealthAppText;
+	@FindBy(xpath = "//h1[contains(text(),'The future')]")
+	WebElement FutureText;
 	
-	@FindBy(xpath = "//h2[contains(text(),'Apple Research app')]/../../following-sibling::div")
-	WebElement AppleResearchAppSection;
-	
-	@FindBy(xpath = "//h2[contains(text(),'Apple Research app')]")
-	WebElement AppleResearchAppText;
+	@FindBy(xpath = "//div[contains(@class,'homepod-mini')]")
+	WebElement HomePodMiniSection;
 	
 	
 	public TVAndHomePage(){
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean isHealthAppPresent() {
-		scrollToAndView(HealthAppText);
-		return isElementPresent(HealthAppSection);
+	public List<WebElement> getTVAndHomeHeaderList() {
+		return TVAndHomeHeaderList;
 	}
-	
-	public boolean isAppleResearchAppPresent() {
-		scrollToAndView(AppleResearchAppText);
-		return isElementPresent(AppleResearchAppSection);
+
+	public boolean isHomePodMiniPresent() {
+		scrollToAndView(FutureText);
+		return isElementPresent(HomePodMiniSection);
 	}
 
 }

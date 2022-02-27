@@ -37,4 +37,28 @@ public class TVAndHomePageTest  extends CommonElements{
 		ExecutionEndLog("verifyTVAndHomePageDisplayed");
 	}
 	
+	@Test(description = "Verifying TV & Home Header List Count Test")
+	@Severity(SeverityLevel.BLOCKER)
+	@Description("Test Case Description: Verify TV & Home Header List Count")
+	@Story("Story Name: To Check TV & Home Header List Count")
+	public void verifyTVAndHomeHeaderListCount(){
+		ExecutionStartLog("verifyTVAndHomeHeaderListCount");
+		HomePage homePage = new HomePage();
+		TVAndHomePage tvAndHomePage = homePage.clickTVAndHome();
+		Assert.assertTrue(tvAndHomePage.getTVAndHomeHeaderList().size()==7, "TV & Home Header List Count is Incorrect");
+		ExecutionEndLog("verifyTVAndHomeHeaderListCount");
+	}
+	
+	@Test(description = "Verifying HomePod Mini Section Test")
+	@Severity(SeverityLevel.BLOCKER)
+	@Description("Test Case Description: Verify HomePod Mini Section")
+	@Story("Story Name: To Check HomePod Mini Section")
+	public void verifyHomePodMiniSection(){
+		ExecutionStartLog("verifyHomePodMiniSection");
+		HomePage homePage = new HomePage();
+		TVAndHomePage tvAndHomePage = homePage.clickTVAndHome();
+		Assert.assertTrue(tvAndHomePage.isHomePodMiniPresent(), "HomePod Mini Section Not Displayed");
+		ExecutionEndLog("verifyHomePodMiniSection");
+	}
+	
 }
