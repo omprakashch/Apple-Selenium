@@ -14,14 +14,23 @@ import io.qameta.allure.Step;
 
 public class HomePage extends CommonElements{
 	
-	@FindBy(xpath = "//div[@data-unit-id='iphone-13-pro']")
+	@FindBy(xpath = "//div[@data-unit-id='iphone-13-pro-avail']")
 	WebElement IPhone13ProSection;
 	
 	@FindBy(xpath = "//div[@data-unit-id='watch-series-7']")
 	WebElement WatchSection;
 	
-	@FindBy(xpath = "//div[@data-unit-id='macbook-pro']")
-	WebElement MacBookProSection;
+	@FindBy(xpath = "//div[@data-unit-id='mac-studio']")
+	WebElement MacStudioSection;
+	
+	@FindBy(xpath = "//h2[contains(text(),'iPhone 13 Pro')]/../div/a[contains(text(),'Learn more')]")
+	WebElement LearnMoreLinkInIPhone13ProSection;
+	
+	@FindBy(xpath = "//figure[contains(@aria-label,'Unicef')]/..//a")
+	WebElement UkraineCrisisMessage;
+	
+	@FindBy(xpath = "//a[contains(@aria-label,'Shop iPhone 13 Pro')]")
+	WebElement ShopLinkInIPhone13ProSection;
 	
 	
 	public HomePage(){
@@ -52,8 +61,21 @@ public class HomePage extends CommonElements{
 	}
 	
 	@Step("getting MacBookPro Section step... ")
-	public boolean isMacBookProPresent() {
-		return isElementPresent(MacBookProSection);
+	public boolean isMacStudioPresent() {
+		return isElementPresent(MacStudioSection);
+	}
+
+	public boolean isLearnMorePresentInIPhone13ProSection() {
+		 return isElementPresent(LearnMoreLinkInIPhone13ProSection);
+	}
+
+	public String getUkraineCrisisMessage() {
+		return getText(UkraineCrisisMessage).trim();
+	}
+
+	public BuyIPhone13ProPage clickShopInIPhone13ProSection() {
+		click(ShopLinkInIPhone13ProSection,"ShopLinkInIPhone13ProSection");
+		return new BuyIPhone13ProPage();
 	}
 
 }

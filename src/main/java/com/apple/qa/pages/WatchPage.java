@@ -30,12 +30,12 @@ public class WatchPage extends CommonElements{
 	}
 
 	public boolean isHealthAppPresent() {
-		scrollToAndView(HealthAppText);
+		scrollToAndView(HealthAppText,true);
 		return isElementPresent(HealthAppSection);
 	}
 	
 	public boolean isAppleResearchAppPresent() {
-		scrollToAndView(AppleResearchAppText);
+		scrollToAndView(AppleResearchAppText,true);
 		return isElementPresent(AppleResearchAppSection);
 	}
 

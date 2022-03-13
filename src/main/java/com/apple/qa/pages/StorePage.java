@@ -32,12 +32,12 @@ public class StorePage extends CommonElements{
 	}
 
 	public String getQuickLink(int option) {
-		scrollToAndView(QuickLinks);
+		scrollToAndView(QuickLinks,true);
 		return getText(QuickLinkOption1 +option+QuickLinkOption2).trim();
 	}
 
 	public boolean isFindAnAppleStorePresent() {
-		scrollToAndView(AppleOnlineStoreText);
+		scrollToAndView(AppleOnlineStoreText,true);
 		return isElementPresent(FindAnAppleStoreLink);
 	}
 	

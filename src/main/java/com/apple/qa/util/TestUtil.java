@@ -47,14 +47,14 @@ public class TestUtil extends TestBase{
 	}
 	
 	public void click(String elementPath, String elementName){
-		WebDriverWait wait = new WebDriverWait(driver,25);
+		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeClickable(getElement(elementPath)));
 		getElement(elementPath).click();
 		logInfo("Clicked On "+elementName);
 	}
 	
 	public void click(WebElement element,String elementName){
-		WebDriverWait wait = new WebDriverWait(driver,25);
+		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
 		logInfo("Clicked On "+elementName);
@@ -92,7 +92,7 @@ public class TestUtil extends TestBase{
 	}
 	
 	public void enterText(WebElement element, String inputText,String elementName){
-		 WebDriverWait wait = new WebDriverWait(driver,25);
+		WebDriverWait wait = new WebDriverWait(driver,25);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.sendKeys(inputText);
 		logInfo("Entered "+elementName);
@@ -114,17 +114,30 @@ public class TestUtil extends TestBase{
 		}
 	}
 	
-	public void scrollToAndView(String elementPath){
+	public void scrollToAndView(String elementPath, boolean flag){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", getElement(elementPath));
+		js.executeScript("arguments[0].scrollIntoView('"+flag+"');", getElement(elementPath));
+		pause(2);
 	}
 	
-	public void scrollToAndView(WebElement element){
+	public void scrollToAndView(WebElement element, boolean flag){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);",element);
+		js.executeScript("arguments[0].scrollIntoView('"+flag+"');",element);
+		pause(2);
 	}
 	
-	public void scroll(int iteration){
+	public void scroll(int iteration, String elementPath){
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.elementToBeClickable(getElement(elementPath)));
+		for(int i=1;i<=iteration;i++){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,250)", "");
+		}
+	}
+	
+	public void scroll(int iteration, WebElement element){
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 		for(int i=1;i<=iteration;i++){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,250)", "");

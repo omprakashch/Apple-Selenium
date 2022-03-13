@@ -45,15 +45,15 @@ public class HomePageTest  extends CommonElements{
 		ExecutionEndLog("verifyWatchSection");
 	}
 	
-	@Test(description = "Verifying MacBook Pro Section Test")
+	@Test(description = "Verifying MacStudio Section Test")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Test Case Description: Verify MacBook Pro Section")
-	@Story("Story Name: To Check MacBook Pro Section")
-	public void verifyMacBookProSection(){
-		ExecutionStartLog("verifyMacBookProSection");
+	@Description("Test Case Description: Verify MacStudio Section")
+	@Story("Story Name: To Check MacStudio Section")
+	public void verifyMacStudioSection(){
+		ExecutionStartLog("verifyMacStudioSection");
 		HomePage homePage = new HomePage();
-		Assert.assertTrue(homePage.isMacBookProPresent(), "MacBook Pro Section Not Displayed");	
-		ExecutionEndLog("verifyMacBookProSection");
+		Assert.assertTrue(homePage.isMacStudioPresent(), "MacStudio Section Not Displayed");	
+		ExecutionEndLog("verifyMacStudioSection");
 	}
 	
 	@Test(description = "Verifying HeaderList Count Test")
@@ -65,6 +65,28 @@ public class HomePageTest  extends CommonElements{
 		HomePage homePage = new HomePage();
 		Assert.assertTrue(homePage.getHeaderList().size()==13, "Header List Count Displayed Incorrectly");	
 		ExecutionEndLog("verifyHeaderListCount");
+	}
+	
+	@Test(description = "Verifying Learn more Displayed in Iphone 13 Pro Section Test")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Test Case Description: Verify Learn more Displayed in Iphone 13 Pro Section")
+	@Story("Story Name: To Check Learn more Displayed in Iphone 13 Pro Section")
+	public void verifyLearnMoreDisplayedInIPhone13ProSection(){
+		ExecutionStartLog("verifyLearnMoreDisplayedInIPhone13ProSection");
+		HomePage homePage = new HomePage();
+		Assert.assertTrue(homePage.isLearnMorePresentInIPhone13ProSection(), "Learn More Link Not Displayed In IPhone13 Pro Section");	
+		ExecutionEndLog("verifyLearnMoreDisplayedInIPhone13ProSection");
+	}
+	
+	@Test(description = "Verifying Ukraine Crisis Message Test")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Test Case Description: Verify Ukraine Crisis Message")
+	@Story("Story Name: To Check Ukraine Crisis Message")
+	public void verifyUkraineCrisisMessage(){
+		ExecutionStartLog("verifyUkraineCrisisMessage");
+		HomePage homePage = new HomePage();
+		Assert.assertTrue(homePage.getUkraineCrisisMessage().equals("Donate to support families affected by the crisis in Ukraine"), "Learn More Link Not Displayed In IPhone13 Pro Section");	
+		ExecutionEndLog("verifyUkraineCrisisMessage");
 	}
 	/*
 	@DataProvider

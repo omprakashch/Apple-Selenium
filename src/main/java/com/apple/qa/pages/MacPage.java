@@ -30,12 +30,12 @@ public class MacPage extends CommonElements{
 	}
 	
 	public boolean isNotebookSectionPresent() {
-		scrollToAndView(WhichMacText);
+		scrollToAndView(WhichMacText,true);
 		return isElementPresent(NotebookSection);
 	}
 	
 	public boolean isDesktopSectionPresent() {
-		scrollToAndView(WhichMacText);
+		scrollToAndView(WhichMacText,true);
 		return isElementPresent(DesktopSection);
 	}
 	

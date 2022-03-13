@@ -27,12 +27,12 @@ public class SupportPage extends CommonElements{
 	}
 
 	public boolean isSearchForTopicsPresent() {
-		scrollToAndView(SearchForTopicsInputField);
+		scrollToAndView(SearchForTopicsInputField,true);
 		return isElementPresent(SearchForTopicsInputField);
 	}
 
 	public String getGiftCardScamMessage() {
-		scrollToAndView(BewareOfCounterPartsMessage);
+		scrollToAndView(BewareOfCounterPartsMessage,true);
 		return getText(GiftCardScamMessage).trim();
 	}
 

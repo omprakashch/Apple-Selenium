@@ -33,7 +33,7 @@ public class IPhonePage extends CommonElements{
 	}
 	
 	public boolean isFeaturedAccessoriesPresent() {
-		scrollToAndView(FeaturedAccessoriesText);
+		scrollToAndView(FeaturedAccessoriesText,true);
 		return isElementPresent(FeaturedAccessoriesSection);
 	}
 	

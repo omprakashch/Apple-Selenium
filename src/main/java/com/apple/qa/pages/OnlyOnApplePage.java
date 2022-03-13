@@ -33,7 +33,7 @@ public class OnlyOnApplePage extends CommonElements{
 	}
 
 	public List<WebElement> getPaymentOptionsList() {
-		scrollToAndView(ExperiencesText);
+		scrollToAndView(ExperiencesText,true);
 		return PaymentOptionsList;
 	}
 

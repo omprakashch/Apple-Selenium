@@ -11,13 +11,13 @@ import com.apple.qa.base.TestBase;
 import com.apple.qa.util.CommonElements;
 import com.apple.qa.util.TestUtil;
 
-public class AccessoriesPage extends CommonElements{
+public class BuyIPhoneAppleStorePage extends CommonElements{
 	
 	@FindBy(xpath = "//nav[contains(@id,'chapternav')]/div/ul[contains(@class,'items')]/li")
 	List<WebElement> AirPodsHeaderList;
 	
-	@FindBy(xpath = "//button[@data-autom='Browse by Category']")
-	WebElement BrowseByCategoryTab;
+	@FindBy(xpath = "//span[text()='iPhone 13 Pro']/ancestor::span/parent::label")
+	WebElement IPhone13ProButton;
 	
 	@FindBy(xpath = "//button[@data-autom='Browse by Product']")
 	WebElement BrowseByProductTab;
@@ -32,13 +32,12 @@ public class AccessoriesPage extends CommonElements{
 	String BrowseByProductOption2 = "]/a/span";
 	
 	
-	public AccessoriesPage(){
+	public BuyIPhoneAppleStorePage(){
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickBrowseByCategory() {
-		scrollToAndView(SearchAccessoriesInputField,true);
-		click(BrowseByCategoryTab,"BrowseByCategoryTab");	
+	public void clickIPhone13Pro() {
+		click(IPhone13ProButton,"IPhone13ProButton");	
 	}
 	
 	public void clickBrowseByProduct() {
@@ -52,6 +51,19 @@ public class AccessoriesPage extends CommonElements{
 	
 	public String getBrowseByProduct(int Option) {
 		return getText(BrowseByProductOption1+Option+BrowseByProductOption2).trim();
+	}
+
+	public BuyIPhoneAppleStorePage selectIPhone13ProWithConfiguration(String model, String color, String capacity, String carrier,
+			String smartPhoneOption, String paymentOption, String coverage) {
+		click(model,"Model "+model);
+		click(color,"Color "+color);
+		click(capacity,"Capacity "+capacity);
+		click(carrier,"Carrier "+carrier);
+		click(smartPhoneOption,"SmartPhoneOption "+smartPhoneOption);
+		click(paymentOption,"PaymentOption "+paymentOption);
+		click(coverage,"Coverage "+coverage);
+		return new BuyIPhoneAppleStorePage();
+		
 	}
 
 }

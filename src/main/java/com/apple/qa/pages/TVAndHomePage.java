@@ -33,7 +33,7 @@ public class TVAndHomePage extends CommonElements{
 	}
 
 	public boolean isHomePodMiniPresent() {
-		scrollToAndView(FutureText);
+		scrollToAndView(FutureText,true);
 		return isElementPresent(HomePodMiniSection);
 	}
 

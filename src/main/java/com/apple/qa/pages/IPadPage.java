@@ -38,7 +38,7 @@ public class IPadPage extends CommonElements{
 	}
 
 	public boolean isIPadProPresent() {
-		scrollToAndView(WhichIPadText);
+		scrollToAndView(WhichIPadText,true);
 		return isElementPresent(IPadProSection);
 	}
 	
