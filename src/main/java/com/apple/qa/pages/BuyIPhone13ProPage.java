@@ -68,8 +68,8 @@ public class BuyIPhone13ProPage extends CommonElements{
 		clickOneTimePayment();
 		clickAppleCarePlus();
 		clickCoverage(coverage);
-		clickContinue();
-		return new BuyIPhoneAppleStorePage();
+		return clickContinue();
+	//	return new BuyIPhoneAppleStorePage();
 		
 	}
 	
@@ -115,8 +115,9 @@ public class BuyIPhone13ProPage extends CommonElements{
 		click(Coverage1+coverage+Coverage2,"Coverage: "+coverage);
 	}
 
-	public void clickContinue(){
+	public BuyIPhoneAppleStorePage clickContinue(){
 		scrollToAndView(ContinueButton,true);
 		click(ContinueButton,"ContinueButton");
+		return new BuyIPhoneAppleStorePage();
 	}
 }

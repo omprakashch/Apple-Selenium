@@ -24,6 +24,9 @@ public class MacPage extends CommonElements{
 	@FindBy(xpath = "//h2[contains(text(),'Which Mac')]")
 	WebElement WhichMacText;
 	
+	@FindBy(xpath = "//p[contains(@class,'hero-product')]//a[text()='Buy' and contains(@aria-label,'Mac Studio')]")
+	WebElement BuyLinkInMacStudioSection;
+	
 	
 	public MacPage(){
 		PageFactory.initElements(driver, this);
@@ -41,6 +44,12 @@ public class MacPage extends CommonElements{
 	
 	public void clickDesktop(){
 		click(DesktopTab,"Desktop Tab");
+	}
+
+	public BuyMacStudioPage clickBuyInMacStudioSection() {
+		click(BuyLinkInMacStudioSection,"Buy Link In MacStudioSection");
+		return new BuyMacStudioPage();
+		
 	}
 
 }

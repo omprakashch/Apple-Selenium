@@ -30,6 +30,9 @@ public class IPadPage extends CommonElements{
 	@FindBy(xpath = "//nav[contains(@aria-label,'iPad family')]/following-sibling::main/div[2]//p")
 	WebElement InstallmentText;
 	
+	@FindBy(xpath = "//h2[contains(text(),'iPad Pro')]/..//a[contains(text(),'Buy')]")
+	WebElement BuyLinkInIPadProSection;
+	
 	
 	
 	
@@ -56,6 +59,11 @@ public class IPadPage extends CommonElements{
 
 	public String getInstallmentMessage() {
 		return getText(InstallmentText);
+	}
+
+	public BuyIPadProPage clickBuyInIPadProSection() {
+		click(BuyLinkInIPadProSection,"Buy Link In IPadProSection");
+		return new BuyIPadProPage();
 	}
 	
 
