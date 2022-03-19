@@ -9,9 +9,9 @@
 
 	<test name="Apple App Test Cases">
 		<classes>
-			<class name="com.apple.qa.testcases.BuyIPhoneAppleStorePageTest">
+			<class name="com.apple.qa.testcases.CartPageTest">
 			 <methods>
-        <include name="verifyBuyIPhoneAppleStorePageDisplayed" />
+        <include name="verifyIPadProAddedToCart" />
          <!--  <include name="verifyHomePodMiniSection" /> -->
       </methods>
        </class>
