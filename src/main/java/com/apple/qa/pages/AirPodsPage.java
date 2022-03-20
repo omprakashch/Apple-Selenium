@@ -19,6 +19,8 @@ public class AirPodsPage extends CommonElements{
 	@FindBy(xpath = "//a[contains(@aria-label,'Check eligibility')]")
 	WebElement CheckEligibilityLink;
 	
+	@FindBy(xpath = "//a[@aria-label='Buy AirPods Max']")
+	WebElement BuyLinkInAirPodsMaxSection;
 	
 	public AirPodsPage(){
 		PageFactory.initElements(driver, this);
@@ -30,6 +32,11 @@ public class AirPodsPage extends CommonElements{
 
 	public boolean isCheckEligibilityPresent() {
 		return isElementPresent(CheckEligibilityLink);
+	}
+
+	public BuyAirPodsMaxPage clickBuyInAirPodsMaxSection() {
+		click(BuyLinkInAirPodsMaxSection,"Buy Link In AirPods Max Section");
+		return new BuyAirPodsMaxPage();
 	}
 
 }

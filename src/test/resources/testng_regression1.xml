@@ -11,7 +11,7 @@
 		<classes>
 			<class name="com.apple.qa.testcases.CartPageTest">
 			 <methods>
-        <include name="verifyIPadProAddedToCart" />
+        <include name="verifyAirPodsMaxAndAppleCareAddedToCart" />
          <!--  <include name="verifyHomePodMiniSection" /> -->
       </methods>
        </class>

@@ -3,6 +3,9 @@ package com.apple.qa.testcases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.apple.qa.pages.AirPodsMaxAccessoriesPage;
+import com.apple.qa.pages.AirPodsPage;
+import com.apple.qa.pages.BuyAirPodsMaxPage;
 import com.apple.qa.pages.BuyIPadProPage;
 import com.apple.qa.pages.BuyMacStudioPage;
 import com.apple.qa.pages.CartPage;
@@ -12,7 +15,6 @@ import com.apple.qa.pages.IPadProAccessoriesPage;
 import com.apple.qa.pages.MacPage;
 import com.apple.qa.pages.MacStudioAccessoriesPage;
 import com.apple.qa.pages.MacStudioPage;
-import com.apple.qa.pages.WatchPage;
 import com.apple.qa.util.CommonElements;
 
 import io.qameta.allure.Description;
@@ -39,12 +41,12 @@ public class CartPageTest  extends CommonElements{
 		ExecutionEndLog("verifyMacStudioAddedToCart");
 	}
 	
-	@Test(description = "Verifying IPad Pro Added To Cart Test")
+	@Test(description = "Verifying IPad Pro & Magic Keyboard Added To Cart Test")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Test Case Description: Verify IPad Pro Added To Cart")
-	@Story("Story Name: To Check IPad Pro Added To Cart")
-	public void verifyIPadProAddedToCart(){
-		ExecutionStartLog("verifyIPadProAddedToCart");
+	@Description("Test Case Description: Verify IPad Pro And Magic Keyboard Added To Cart")
+	@Story("Story Name: To Check IPad Pro And Magic Keyboard Added To Cart")
+	public void verifyIPadProAndMagicKeyboardAddedToCart(){
+		ExecutionStartLog("verifyIPadProAndMagicKeyboardAddedToCart");
 		HomePage homePage = new HomePage();
 		IPadPage iPadPage = homePage.clickIPad();
 		BuyIPadProPage buyIPadProPage = iPadPage.clickBuyInIPadProSection();
@@ -54,19 +56,26 @@ public class CartPageTest  extends CommonElements{
 		IPadProAccessoriesPage iPadProAccessoriesPage = buyIPadProPage.clickAddToBag();
 		CartPage cartPage = iPadProAccessoriesPage.clickReviewBag();
 		Assert.assertTrue(cartPage.getProductName(1).contains("iPad Pro"), "IPad Pro Not Added To Cart");
-		ExecutionEndLog("verifyIPadProAddedToCart");
+		Assert.assertTrue(cartPage.getProductName(3).contains("Magic Keyboard"), "Magic Keyboard Not Added To Cart");
+		ExecutionEndLog("verifyIPadProAndMagicKeyboardAddedToCart");
 	}
 	
-	@Test(description = "Verifying Apple Research App Section Test")
+	@Test(description = "Verifying AirPods Max & Apple Care Added To Cart Test")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Test Case Description: Verify Apple Research App Section")
-	@Story("Story Name: To Check Apple Research App Section")
-	public void verifyAppleResearchAppSection(){
-		ExecutionStartLog("verifyAppleResearchAppSection");
+	@Description("Test Case Description: Verify AirPods Max And Apple Care Added To Cart")
+	@Story("Story Name: To Check AirPods Max And Apple Care Added To Cart")
+	public void verifyAirPodsMaxAndAppleCareAddedToCart(){
+		ExecutionStartLog("verifyAirPodsMaxAndAppleCareAddedToCart");
 		HomePage homePage = new HomePage();
-		WatchPage watchPage = homePage.clickWatch();
-		Assert.assertTrue(watchPage.isAppleResearchAppPresent(), "Apple Research App Section Not Displayed");
-		ExecutionEndLog("verifyAppleResearchAppSection");
+		AirPodsPage airPodsPage = homePage.clickAirPods();
+		BuyAirPodsMaxPage buyAirPodsMaxPage = airPodsPage.clickBuyInAirPodsMaxSection();
+		buyAirPodsMaxPage.selectAirPodsMaxWithConfiguration("Pink","Add","Hi Prakash");
+		buyAirPodsMaxPage.clickAppleCarePlusAdd();
+		AirPodsMaxAccessoriesPage airPodsMaxAccessoriesPage = buyAirPodsMaxPage.clickAddToBag();
+		CartPage cartPage = airPodsMaxAccessoriesPage.clickReviewBag();
+		Assert.assertTrue(cartPage.getProductName(1).contains("AirPods Max"), "AirPods Max Not Added To Cart");
+		Assert.assertTrue(cartPage.getAppleCarePlusMessage(1).contains("AppleCare+"), "Apple Care Not Added To Cart");
+		ExecutionEndLog("verifyAirPodsMaxAndAppleCareAddedToCart");
 	}
 
 	/*

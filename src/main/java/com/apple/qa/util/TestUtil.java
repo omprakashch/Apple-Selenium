@@ -133,6 +133,7 @@ public class TestUtil extends TestBase{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,250)", "");
 		}
+		pause(2);
 	}
 	
 	public void scroll(int iteration, WebElement element){
@@ -142,6 +143,7 @@ public class TestUtil extends TestBase{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,250)", "");
 		}
+		pause(2);
 	}
 	
 	public void jseClick(String elementPath,String elementName){

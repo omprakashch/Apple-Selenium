@@ -37,7 +37,7 @@ public class BuyIPadProPage extends CommonElements{
 	String KeyboardColor3 = "']/..//label";
 	
 	String MagicKeyboardAdd1 = "//span[contains(text(),'Pro ";
-	String MagicKeyboardAdd2 = "')]/preceding-sibling::span[contains(text(),'Add')]";
+	String MagicKeyboardAdd2 = "')]/ancestor::button";
 	
 	@FindBy(xpath = "//button[@name='add-to-cart']")
 	WebElement AddToBagButton;
@@ -56,33 +56,24 @@ public class BuyIPadProPage extends CommonElements{
 	}
 	
 	public void selectModel(String model){
-		//scrollToAndView(Model1+model+Model2,true);
 		click(Model1+model+Model2,"Model: "+model);
 	}
 	
 	public void selectColor(String color){
-		scrollToAndView(Color1+color+Color2,true);
 		click(Color1+color+Color2,"Color: "+color);
 	}
 	
 	public void selectStorage(String storage){
-		scrollToAndView(Storage1+storage+Storage2,true);
 		click(Storage1+storage+Storage2,"Storage: "+storage);
 	}
 	
 	public void selectConnectivity(String connectivity){
-		scrollToAndView(Connectivity1+connectivity+Connectivity2,true);
 		click(Connectivity1+connectivity+Connectivity2,"Connectivity: "+connectivity);
 	}
 	
 	public void selectEngraveOption(String engraveOption){
-		scrollToAndView(EngraveOption1+engraveOption+EngraveOption2,true);
-		try{
+		driver.navigate().refresh();
 		click(EngraveOption1+engraveOption+EngraveOption2,"EngraveOption: "+engraveOption);	
-		}
-		catch(StaleElementReferenceException e){
-		click(EngraveOption1+engraveOption+EngraveOption2,"EngraveOption: "+engraveOption);		
-		}
 	}
 
 	public void clickApplePencilAdd() {
@@ -96,18 +87,13 @@ public class BuyIPadProPage extends CommonElements{
 	}
 	
 	public void selectKeyboardColor(String color,String model){
-		scrollToAndView(KeyboardColor1+model+KeyboardColor2+color+KeyboardColor3,true);
 		click(KeyboardColor1+model+KeyboardColor2+color+KeyboardColor3,"Keyboard Color: "+color+" For IPad Display "+model);	
 	}
 
 	public IPadProAccessoriesPage clickAddToBag() {
+		driver.navigate().refresh();
 		scrollToAndView(AddToBagButton,true);
-		try{
-			click(AddToBagButton,"AddToBagButton");	
-			}
-			catch(StaleElementReferenceException e){
-			click(AddToBagButton,"AddToBagButton");		
-			}
+		click(AddToBagButton,"AddToBagButton");	
 		return new IPadProAccessoriesPage();
 	}
 }
