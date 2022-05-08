@@ -19,6 +19,9 @@ public class AirPodsPage extends CommonElements{
 	@FindBy(xpath = "//a[contains(@aria-label,'Check eligibility')]")
 	WebElement CheckEligibilityLink;
 	
+	@FindBy(xpath = "//a[contains(text(),'Learn')]")
+	WebElement LearnMoreLink;
+	
 	@FindBy(xpath = "//a[@aria-label='Buy AirPods Max']")
 	WebElement BuyLinkInAirPodsMaxSection;
 	
@@ -37,6 +40,10 @@ public class AirPodsPage extends CommonElements{
 	public BuyAirPodsMaxPage clickBuyInAirPodsMaxSection() {
 		click(BuyLinkInAirPodsMaxSection,"Buy Link In AirPods Max Section");
 		return new BuyAirPodsMaxPage();
+	}
+
+	public boolean isLearnMorePresent() {
+		return isElementPresent(LearnMoreLink);
 	}
 
 }

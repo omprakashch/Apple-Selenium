@@ -49,16 +49,16 @@ public class AirPodsPageTest  extends CommonElements{
 		ExecutionEndLog("verifyAirPodsHeaderListCount");
 	}
 	
-	@Test(description = "Verifying Check eligibility Link Displayed Test")
+	@Test(description = "Verifying Learn more Link Displayed Test")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Test Case Description: Verify Check eligibility Link Displayed")
-	@Story("Story Name: To Check Check eligibility Link Displayed")
-	public void verifyCheckEligibilityLinkDisplayed(){
-		ExecutionStartLog("verifyCheckEligibilityLinkDisplayed");
+	@Description("Test Case Description: Verify Learn more Link Displayed")
+	@Story("Story Name: To Check Learn more Link Displayed")
+	public void verifyLearnMoreLinkDisplayed(){
+		ExecutionStartLog("verifyLearnMoreLinkDisplayed");
 		HomePage homePage = new HomePage();
 		AirPodsPage airPodsPage = homePage.clickAirPods();
-		Assert.assertTrue(airPodsPage.isCheckEligibilityPresent(), "Check Eligibility Link Not Displayed");
-		ExecutionEndLog("verifyCheckEligibilityLinkDisplayed");
+		Assert.assertTrue(airPodsPage.isLearnMorePresent(), "Learn More Link Not Displayed");
+		ExecutionEndLog("verifyLearnMoreLinkDisplayed");
 	}
 
 	/*

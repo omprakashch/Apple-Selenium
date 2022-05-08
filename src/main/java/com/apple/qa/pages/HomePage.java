@@ -14,7 +14,7 @@ import io.qameta.allure.Step;
 
 public class HomePage extends CommonElements{
 	
-	@FindBy(xpath = "//div[@data-unit-id='iphone-13-pro-avail']")
+	@FindBy(xpath = "//div[@data-unit-id='iphone-13-pro']")
 	WebElement IPhone13ProSection;
 	
 	@FindBy(xpath = "//div[@data-unit-id='watch-series-7']")
@@ -22,6 +22,12 @@ public class HomePage extends CommonElements{
 	
 	@FindBy(xpath = "//div[@data-unit-id='mac-studio']")
 	WebElement MacStudioSection;
+	
+	@FindBy(xpath = "//div[@data-unit-id='ipad-air']")
+	WebElement IPadAirSection;
+	
+	@FindBy(xpath = "//div[contains(@class,'tile-gift-card')]")
+	WebElement GiftCardSection;
 	
 	@FindBy(xpath = "//h2[contains(text(),'iPhone 13 Pro')]/../div/a[contains(text(),'Learn more')]")
 	WebElement LearnMoreLinkInIPhone13ProSection;
@@ -76,6 +82,14 @@ public class HomePage extends CommonElements{
 	public BuyIPhone13ProPage clickShopInIPhone13ProSection() {
 		click(ShopLinkInIPhone13ProSection,"ShopLinkInIPhone13ProSection");
 		return new BuyIPhone13ProPage();
+	}
+
+	public boolean isGiftCardPresent() {
+		 return isElementPresent(GiftCardSection);
+	}
+
+	public boolean isIPadAirPresent() {
+		 return isElementPresent(IPadAirSection);
 	}
 
 }

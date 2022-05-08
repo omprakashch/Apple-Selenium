@@ -45,15 +45,15 @@ public class HomePageTest  extends CommonElements{
 		ExecutionEndLog("verifyWatchSection");
 	}
 	
-	@Test(description = "Verifying MacStudio Section Test")
+	@Test(description = "Verifying IPadAir Section Test")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Test Case Description: Verify MacStudio Section")
-	@Story("Story Name: To Check MacStudio Section")
-	public void verifyMacStudioSection(){
-		ExecutionStartLog("verifyMacStudioSection");
+	@Description("Test Case Description: Verify IPadAir Section")
+	@Story("Story Name: To Check IPadAir Section")
+	public void verifyIPadAirSection(){
+		ExecutionStartLog("verifyIPadAirSection");
 		HomePage homePage = new HomePage();
-		Assert.assertTrue(homePage.isMacStudioPresent(), "MacStudio Section Not Displayed");	
-		ExecutionEndLog("verifyMacStudioSection");
+		Assert.assertTrue(homePage.isIPadAirPresent(), "IPadAir Section Not Displayed");	
+		ExecutionEndLog("verifyIPadAirSection");
 	}
 	
 	@Test(description = "Verifying HeaderList Count Test")
@@ -85,7 +85,7 @@ public class HomePageTest  extends CommonElements{
 	public void verifyUkraineCrisisMessage(){
 		ExecutionStartLog("verifyUkraineCrisisMessage");
 		HomePage homePage = new HomePage();
-		Assert.assertTrue(homePage.getUkraineCrisisMessage().equals("Donate to support families affected by the crisis in Ukraine"), "Learn More Link Not Displayed In IPhone13 Pro Section");	
+		Assert.assertTrue(homePage.getUkraineCrisisMessage().contains("Donate to support families affected by the war in Ukraine"), "Ukraine Crisis Message Displayed Incorrectly");	
 		ExecutionEndLog("verifyUkraineCrisisMessage");
 	}
 	/*

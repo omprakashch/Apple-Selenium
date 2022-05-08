@@ -24,7 +24,10 @@ public class IPhonePage extends CommonElements{
 	@FindBy(xpath = "//section[contains(@class,'accessories')]/h2")
 	WebElement FeaturedAccessoriesText;
 	
-	@FindBy(xpath = "//nav[contains(@id,'chapternav')]/following-sibling::main/div[3]//p")
+	@FindBy(xpath = "//a[contains(text(),'Find your deal')]")
+	WebElement FindYourDealButton;
+	
+	@FindBy(xpath = "//div[contains(@data-analytics-section-engagement,'name:daily cash back with apple card')]/div[1]//h3")
 	WebElement InstallmentText;
 	
 	
@@ -38,7 +41,8 @@ public class IPhonePage extends CommonElements{
 	}
 	
 	public String getInstallmentMessage() {
-		return getText(InstallmentText);
+		scrollToAndView(FindYourDealButton,true);
+		return getText(InstallmentText).replaceAll("\\s+", " ").trim();
 	}
 
 }

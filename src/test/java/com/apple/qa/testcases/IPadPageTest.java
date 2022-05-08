@@ -44,7 +44,7 @@ public class IPadPageTest  extends CommonElements{
 		ExecutionStartLog("verifyInstallmentMessage");
 		HomePage homePage = new HomePage();
 		IPadPage iPadPage = homePage.clickIPad();
-		Assert.assertTrue(iPadPage.getInstallmentMessage().contains("Get 3% Daily Cash back with Apple Card. And pay for your new iPad over 12 months"), "Installment Message Displayed Incorrectly");
+		Assert.assertTrue(iPadPage.getInstallmentMessage().contains("Get 3% Daily Cash back with Apple Card."), "Installment Message Displayed Incorrectly");
 		ExecutionEndLog("verifyInstallmentMessage");
 	}
 	

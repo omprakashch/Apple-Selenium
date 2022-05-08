@@ -50,6 +50,7 @@ public class TestUtil extends TestBase{
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeClickable(getElement(elementPath)));
 		getElement(elementPath).click();
+		pause(3);
 		logInfo("Clicked On "+elementName);
 	}
 	
@@ -57,6 +58,7 @@ public class TestUtil extends TestBase{
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
+		pause(3);
 		logInfo("Clicked On "+elementName);
 	}
 	
@@ -149,12 +151,14 @@ public class TestUtil extends TestBase{
 	public void jseClick(String elementPath,String elementName){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", getElement(elementPath));
+		pause(3);
 		logInfo("Clicked On "+elementName);
 	}
 	
 	public void jseClick(WebElement element,String elementName){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
+		pause(3);
 		logInfo("Clicked On "+elementName);
 	}
 	
