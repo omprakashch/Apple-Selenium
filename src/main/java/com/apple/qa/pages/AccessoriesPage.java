@@ -1,20 +1,20 @@
 package com.apple.qa.pages;
 
 import java.util.List;
-import java.util.Properties;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.apple.qa.base.TestBase;
+
 import com.apple.qa.util.CommonElements;
-import com.apple.qa.util.TestUtil;
 
 public class AccessoriesPage extends CommonElements{
 	
 	@FindBy(xpath = "//nav[contains(@id,'chapternav')]/div/ul[contains(@class,'items')]/li")
 	List<WebElement> AirPodsHeaderList;
+	
+	@FindBy(xpath = "//button[text()='Review Bag']")
+	WebElement ReviewBag;
 	
 	@FindBy(xpath = "//button[@data-autom='Browse by Category']")
 	WebElement BrowseByCategoryTab;
@@ -52,6 +52,11 @@ public class AccessoriesPage extends CommonElements{
 	
 	public String getBrowseByProduct(int Option) {
 		return getText(BrowseByProductOption1+Option+BrowseByProductOption2).trim();
+	}
+	
+	public CartPage clickReviewBag() {
+		click(ReviewBag,"ReviewBag");
+		return new CartPage();
 	}
 
 }

@@ -1,14 +1,10 @@
 package com.apple.qa.pages;
 
-import java.util.Properties;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.apple.qa.base.TestBase;
+
 import com.apple.qa.util.CommonElements;
-import com.apple.qa.util.TestUtil;
 
 public class IPadPage extends CommonElements{
 	
@@ -32,6 +28,9 @@ public class IPadPage extends CommonElements{
 	
 	@FindBy(xpath = "//h2[contains(text(),'iPad Pro')]/..//a[contains(text(),'Buy')]")
 	WebElement BuyLinkInIPadProSection;
+	
+	@FindBy(xpath = "//section[contains(@class,'ipad-mini')]//a[contains(@aria-label,'Buy iPad mini')]")
+	WebElement BuyLinkInIPadMiniSection;
 	
 	
 	
@@ -65,6 +64,11 @@ public class IPadPage extends CommonElements{
 	public BuyIPadProPage clickBuyInIPadProSection() {
 		click(BuyLinkInIPadProSection,"Buy Link In IPadProSection");
 		return new BuyIPadProPage();
+	}
+	
+	public BuyIPadMiniPage clickBuyInIPadMiniSection() {
+		click(BuyLinkInIPadMiniSection,"Buy Link In IPadMiniSection");
+		return new BuyIPadMiniPage();
 	}
 	
 

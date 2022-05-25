@@ -1,14 +1,10 @@
 package com.apple.qa.pages;
 
-import java.util.Properties;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.apple.qa.base.TestBase;
+
 import com.apple.qa.util.CommonElements;
-import com.apple.qa.util.TestUtil;
 
 public class WatchPage extends CommonElements{
 	
@@ -25,6 +21,10 @@ public class WatchPage extends CommonElements{
 	WebElement AppleResearchAppText;
 	
 	
+	@FindBy(xpath = "//span[text()='Apple Watch Nike']/..")
+	WebElement AppleWatchNikeLink;
+	
+	
 	public WatchPage(){
 		PageFactory.initElements(driver, this);
 	}
@@ -37,6 +37,12 @@ public class WatchPage extends CommonElements{
 	public boolean isAppleResearchAppPresent() {
 		scrollToAndView(AppleResearchAppText,true);
 		return isElementPresent(AppleResearchAppSection);
+	}
+	
+	public AppleWatchNikePage clickAppleWatchNike() {
+		scrollToAndView(AppleWatchNikeLink,true);
+		click(AppleWatchNikeLink,"AppleWatchNikeLink");
+		return new AppleWatchNikePage();
 	}
 
 }
