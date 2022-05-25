@@ -3,18 +3,24 @@ package com.apple.qa.testcases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.apple.qa.pages.AccessoriesPage;
 import com.apple.qa.pages.AirPodsMaxAccessoriesPage;
 import com.apple.qa.pages.AirPodsPage;
+import com.apple.qa.pages.AppleWatchNikePage;
 import com.apple.qa.pages.BuyAirPodsMaxPage;
+import com.apple.qa.pages.BuyAppleWatchNikePage;
+import com.apple.qa.pages.BuyIPadMiniPage;
 import com.apple.qa.pages.BuyIPadProPage;
 import com.apple.qa.pages.BuyMacStudioPage;
 import com.apple.qa.pages.CartPage;
 import com.apple.qa.pages.HomePage;
+import com.apple.qa.pages.IPadMiniAccessoriesPage;
 import com.apple.qa.pages.IPadPage;
 import com.apple.qa.pages.IPadProAccessoriesPage;
 import com.apple.qa.pages.MacPage;
 import com.apple.qa.pages.MacStudioAccessoriesPage;
 import com.apple.qa.pages.MacStudioPage;
+import com.apple.qa.pages.WatchPage;
 import com.apple.qa.util.CommonElements;
 
 import io.qameta.allure.Description;
@@ -76,6 +82,40 @@ public class CartPageTest  extends CommonElements{
 		Assert.assertTrue(cartPage.getProductName(1).contains("AirPods Max"), "AirPods Max Not Added To Cart");
 		Assert.assertTrue(cartPage.getAppleCarePlusMessage(1).contains("AppleCare+"), "Apple Care Not Added To Cart");
 		ExecutionEndLog("verifyAirPodsMaxAndAppleCareAddedToCart");
+	}
+	
+	@Test(description = "Verifying IPad Mini Added To Cart Test")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Test Case Description: Verify IPad Mini Added To Cart")
+	@Story("Story Name: To Check IPad Mini Added To Cart")
+	public void verifyIPadMiniAddedToCart(){
+		ExecutionStartLog("verifyIPadMiniAddedToCart");
+		HomePage homePage = new HomePage();
+		IPadPage iPadPage = homePage.clickIPad();
+		BuyIPadMiniPage buyIPadMiniPage = iPadPage.clickBuyInIPadMiniSection();
+		buyIPadMiniPage.selectIPadMiniWithConfiguration("Space Gray","64","Wi-Fi","No");
+		IPadMiniAccessoriesPage iPadMiniAccessoriesPage = buyIPadMiniPage.clickAddToBag();
+		CartPage cartPage = iPadMiniAccessoriesPage.clickReviewBag();
+		Assert.assertTrue(cartPage.getProductName(1).contains("iPad mini"), "IPad Mini Not Added To Cart");
+		ExecutionEndLog("verifyIPadMiniAddedToCart");
+	}
+	
+	@Test(description = "Verifying Apple Watch Nike Added To Cart Test")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Test Case Description: Verify Apple Watch Nike Added To Cart")
+	@Story("Story Name: To Check Apple Watch Nike Added To Cart")
+	public void verifyAppleWatchNikeAddedToCart(){
+		ExecutionStartLog("verifyAppleWatchNikeAddedToCart");
+		HomePage homePage = new HomePage();
+		WatchPage watchPage = homePage.clickWatch();
+		AppleWatchNikePage appleWatchNikePage = watchPage.clickAppleWatchNike();
+		BuyAppleWatchNikePage buyAppleWatchNikePage = appleWatchNikePage.clickBuy();
+		buyAppleWatchNikePage.clickWatch(1);
+		buyAppleWatchNikePage.selectAppleWatchNikeWithConfiguration("41mm","GPS");
+		AccessoriesPage accessoriesPage = buyAppleWatchNikePage.clickAddToBag();
+		CartPage cartPage = accessoriesPage.clickReviewBag();
+		Assert.assertTrue(cartPage.getProductName(1).contains("Apple Watch Nike"), "Apple Watch Nike Not Added To Cart");
+		ExecutionEndLog("verifyAppleWatchNikeAddedToCart");
 	}
 
 	/*
