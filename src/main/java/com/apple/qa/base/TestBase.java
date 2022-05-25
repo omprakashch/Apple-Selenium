@@ -22,7 +22,7 @@ public class TestBase {
 	public  EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
 	public static long PAGE_LOAD_TIMEOUT = 90;
-	public static long IMPLICIT_WAIT = 45;
+	public static long IMPLICIT_WAIT = 60;
 	public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 	Logger log = Logger.getLogger(TestBase.class);
 	public static String browserName = null;
