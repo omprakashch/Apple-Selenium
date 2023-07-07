@@ -14,7 +14,7 @@ import com.apple.qa.base.TestBase;
 import com.apple.qa.pages.AirPodsPage;
 import com.apple.qa.pages.HomePage;
 import com.apple.qa.pages.MacPage;
-import com.apple.qa.pages.OnlyOnApplePage;
+import com.apple.qa.pages.VisionPage;
 import com.apple.qa.pages.WatchPage;
 import com.apple.qa.util.CommonElements;
 import com.apple.qa.util.TestUtil;
@@ -24,18 +24,18 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
-public class OnlyOnApplePageTest  extends CommonElements{
+public class VisionPageTest  extends CommonElements{
 	
-	@Test(description = "Verifying OnlyOnApple Page Displayed Test")
+	@Test(description = "Verifying Apple Vision Pro Page Displayed Test")
 	@Severity(SeverityLevel.BLOCKER)
-	@Description("Test Case Description: Verify OnlyOnApple Page Displayed")
-	@Story("Story Name: To Check OnlyOnApple Page Displayed")
-	public void verifyOnlyOnApplePageDisplayed(){
-		ExecutionStartLog("verifyOnlyOnApplePageDisplayed");
+	@Description("Test Case Description: Verify Apple Vision Pro Page Displayed")
+	@Story("Story Name: To Check Apple Vision Pro Page Displayed")
+	public void verifyAppleVisionProPageDisplayed(){
+		ExecutionStartLog("verifyAppleVisionProPageDisplayed");
 		HomePage homePage = new HomePage();
-		OnlyOnApplePage onlyOnApplePage = homePage.clickOnlyOnApple();
-		Assert.assertTrue(onlyOnApplePage.getPageTitle().equals("Only on Apple - Services - Apple"), "OnlyOnApple Page Not Displayed");
-		ExecutionEndLog("verifyOnlyOnApplePageDisplayed");
+		VisionPage visionPage = homePage.clickVision();
+		Assert.assertTrue(visionPage.getPageTitle().equals("Apple Vision Pro - Apple"), "Apple Vision Pro Page Not Displayed");
+		ExecutionEndLog("verifyAppleVisionProPageDisplayed");
 	}
 	
 	@Test(description = "Verifying OnlyOnApple Header List Count Test")
@@ -45,7 +45,7 @@ public class OnlyOnApplePageTest  extends CommonElements{
 	public void verifyOnlyOnAppleHeaderListCount(){
 		ExecutionStartLog("verifyOnlyOnAppleHeaderListCount");
 		HomePage homePage = new HomePage();
-		OnlyOnApplePage onlyOnApplePage = homePage.clickOnlyOnApple();
+		VisionPage onlyOnApplePage = homePage.clickVision();
 		Assert.assertTrue(onlyOnApplePage.getOnlyOnAppleHeaderList().size()==10, "OnlyOnApple Header List Count is Incorrect");
 		ExecutionEndLog("verifyOnlyOnAppleHeaderListCount");
 	}
@@ -57,7 +57,7 @@ public class OnlyOnApplePageTest  extends CommonElements{
 	public void verifyPaymentOptionsListCount(){
 		ExecutionStartLog("verifyPaymentOptionsListCount");
 		HomePage homePage = new HomePage();
-		OnlyOnApplePage onlyOnApplePage = homePage.clickOnlyOnApple();
+		VisionPage onlyOnApplePage = homePage.clickVision();
 		Assert.assertTrue(onlyOnApplePage.getPaymentOptionsList().size()==3, "Payment Options List Count is Incorrect");
 		ExecutionEndLog("verifyPaymentOptionsListCount");
 	}
