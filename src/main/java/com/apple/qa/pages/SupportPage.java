@@ -8,13 +8,13 @@ import com.apple.qa.util.CommonElements;
 
 public class SupportPage extends CommonElements{
 	
-	@FindBy(xpath = "//label[contains(text(),'Search Support')]/following-sibling::input[@placeholder='Search Support']")
+	@FindBy(xpath = "//label[contains(text(),'Search Support')]/following-sibling::input[contains(@aria-owns,'search')]")
 	WebElement SearchForTopicsInputField;
 	
-	@FindBy(xpath = "//h3[contains(text(),'Beware of counterfeit parts')]")
+	@FindBy(xpath = "//h2[contains(text(),'Beware of counterfeit parts')]")
 	WebElement BewareOfCounterPartsMessage;
 	
-	@FindBy(xpath = "//h3[contains(text(),'gift card scams')]")
+	@FindBy(xpath = "//h2[contains(text(),'gift card scams')]")
 	WebElement GiftCardScamMessage;
 	
 	

@@ -57,18 +57,21 @@ public class TestBase {
 		eventListener = new WebEventListener();
 		e_driver.register(eventListener);
 		driver = e_driver;
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT,TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT,TimeUnit.SECONDS); 
-		driver.manage().timeouts().setScriptTimeout(PAGE_LOAD_TIMEOUT,TimeUnit.SECONDS);
-		//tdriver.set(driver);
+		tdriver.set(driver);
 		//driver = getDriver();
-		driver.get(prop.getProperty("url"));
+		getDriver().manage().window().maximize();
+		getDriver().manage().deleteAllCookies();
+		getDriver().manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT,TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(IMPLICIT_WAIT,TimeUnit.SECONDS); 
+		getDriver().manage().timeouts().setScriptTimeout(PAGE_LOAD_TIMEOUT,TimeUnit.SECONDS);
+		getDriver().get(prop.getProperty("url"));
 		log.info("Navigating to url "+prop.getProperty("url"));
 }
 	
-	public static synchronized WebDriver getDriver() {
+	public synchronized WebDriver getDriver() {
+		if(tdriver.get()==null){
+			tdriver.set(driver);
+		}
 		return tdriver.get();
 	}
 	
@@ -82,7 +85,7 @@ public class TestBase {
 	
 	@AfterMethod
 	public void tearDown(){
-	driver.quit();
+	getDriver().quit();
 	log.info("********Closing The Browser********");	
 	ExecutionEndLog("TestCaseExecution");
 	}

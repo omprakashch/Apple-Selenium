@@ -1,9 +1,10 @@
 package com.apple.qa.testcases;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.apple.qa.pages.BuyIPhone13ProPage;
+import com.apple.qa.pages.BuyIPhone14ProPage;
 import com.apple.qa.pages.BuyIPhoneAppleStorePage;
 import com.apple.qa.pages.HomePage;
 import com.apple.qa.util.CommonElements;
@@ -21,8 +22,8 @@ public class BuyIPhoneAppleStorePageTest extends CommonElements {
 	public void verifyBuyIPhoneAppleStorePageDisplayed(){
 		ExecutionStartLog("verifyBuyIPhoneAppleStorePageDisplayed");
 		HomePage homePage = new HomePage();
-		BuyIPhone13ProPage buyIPhone13ProPage = homePage.clickShopInIPhone13ProSection();
-		BuyIPhoneAppleStorePage buyIPhoneAppleStorePage = buyIPhone13ProPage.selectIPhone13ProWithConfiguration("iPhone 13 Pro","Silver","256","Sprint","No","Pay in full","Two years of coverage");
+		BuyIPhone14ProPage buyIPhone14ProPage = homePage.clickBuyInIPhone14ProSection();
+		BuyIPhoneAppleStorePage buyIPhoneAppleStorePage = buyIPhone14ProPage.selectIPhone14ProWithConfiguration("iPhone 14 Pro","Silver","256","Sprint","No","Pay in full","Two years of coverage");
 	    Assert.assertTrue(buyIPhoneAppleStorePage.getPageTitle().equals("Buy iPhone - Apple Store"), "Buy IPhone Aple Store Page Not Displayed");
 	    ExecutionEndLog("verifyBuyIPhoneAppleStorePageDisplayed");
 	}	

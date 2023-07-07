@@ -9,12 +9,13 @@
 
 	<test name="Apple App Test Cases">
 		<classes>
-			<class name="com.apple.qa.testcases.CartPageTest">
-			 <methods>
-        <include name="verifyAirPodsMaxAndAppleCareAddedToCart" />
-         <!--  <include name="verifyHomePodMiniSection" /> -->
-      </methods>
-       </class>
+       <class name="com.apple.qa.testcases.HomePageTest">
+       <methods>
+       <include name="verifyIPhone13ProSection"/>
+       <include name="verifyWatchSection"/>
+       </methods>
+       </class> 
+        <!-- <class name="com.apple.qa.testcases.HomePageTest"/> -->
 		</classes>
 	</test>
 </suite>

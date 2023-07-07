@@ -8,16 +8,16 @@ import com.apple.qa.util.CommonElements;
 
 public class IPadPage extends CommonElements{
 	
-	@FindBy(xpath = "//div[@class='ipad-pro device']")
+	@FindBy(xpath = "//div[contains(@class,'ipad-pro device')]")
 	WebElement IPadProSection;
 	
-	@FindBy(xpath = "//div[@class='ipad-air device']")
+	@FindBy(xpath = "//div[contains(@class,'ipad-air device')]")
 	WebElement IPadAirSection;
 	
-	@FindBy(xpath = "//div[@class='ipad-10-2 device']")
+	@FindBy(xpath = "//div[contains(@class,'ipad-10-9 device')]")
 	WebElement IPadSection;
 	
-	@FindBy(xpath = "//div[@class='ipad-mini device']")
+	@FindBy(xpath = "//div[contains(@class,'ipad-mini device')]")
 	WebElement IPadMiniSection;
 	
 	@FindBy(xpath = "//h2[contains(text(),'Which iPad')]")
@@ -26,11 +26,11 @@ public class IPadPage extends CommonElements{
 	@FindBy(xpath = "//div[contains(@data-analytics-section-engagement,'name:daily cash back with apple card')]/div[1]//h2")
 	WebElement InstallmentText;
 	
-	@FindBy(xpath = "//h2[contains(text(),'iPad Pro')]/..//a[contains(text(),'Buy')]")
+	@FindBy(xpath = "//span[text()='New']/../following-sibling::a[@aria-label='Buy iPad Pro']")
 	WebElement BuyLinkInIPadProSection;
 	
-	@FindBy(xpath = "//section[contains(@class,'ipad-mini')]//a[contains(@aria-label,'Buy iPad mini')]")
-	WebElement BuyLinkInIPadMiniSection;
+	@FindBy(xpath = "//section[contains(@class,'ipad')]//a[contains(@aria-label,'Buy iPad') and not(contains(@aria-label,'Pro'))]")
+	WebElement BuyLinkInIPadSection;
 	
 	
 	
@@ -66,9 +66,9 @@ public class IPadPage extends CommonElements{
 		return new BuyIPadProPage();
 	}
 	
-	public BuyIPadMiniPage clickBuyInIPadMiniSection() {
-		click(BuyLinkInIPadMiniSection,"Buy Link In IPadMiniSection");
-		return new BuyIPadMiniPage();
+	public BuyIPadPage clickBuyInIPadSection() {
+		click(BuyLinkInIPadSection,"Buy Link In IPadSection");
+		return new BuyIPadPage();
 	}
 	
 

@@ -14,8 +14,8 @@ public class BuyMacStudioPage extends CommonElements{
 	@FindBy(xpath = "//span[text()='Mac Studio']/../../following-sibling::div//button")
 	WebElement AddToBag;
 	
-	String Select1 = "//img[@alt='";
-	String Select2 = "']/ancestor::h2/following-sibling::div//button[@type='submit']";
+	String Select1 = "//img[contains(@alt,'";
+	String Select2 = "')]/ancestor::h2/following-sibling::div//button[@type='submit']";
 	
 	public BuyMacStudioPage(){
 		PageFactory.initElements(driver, this);

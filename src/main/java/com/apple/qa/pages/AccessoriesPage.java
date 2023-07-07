@@ -2,6 +2,7 @@ package com.apple.qa.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,8 +11,6 @@ import com.apple.qa.util.CommonElements;
 
 public class AccessoriesPage extends CommonElements{
 	
-	@FindBy(xpath = "//nav[contains(@id,'chapternav')]/div/ul[contains(@class,'items')]/li")
-	List<WebElement> AirPodsHeaderList;
 	
 	@FindBy(xpath = "//button[text()='Review Bag']")
 	WebElement ReviewBag;
@@ -25,12 +24,11 @@ public class AccessoriesPage extends CommonElements{
 	@FindBy(xpath = "//input[@data-autom='searchInputBox']")
 	WebElement SearchAccessoriesInputField;
 	
-	String BrowseByCategoryOption1 = "//button[@data-autom='Browse by Category']/../../../../following-sibling::div/ul/div/li[";
+	String BrowseByCategoryOption1 = "//button[@data-autom='Browse by Category']/../../../../following-sibling::div//ul/li[";
 	String BrowseByCategoryOption2 = "]/a/span";
 	
-	String BrowseByProductOption1 = "//button[@data-autom='Browse by Product']/../../../../following-sibling::div/ul/div/li[";
+	String BrowseByProductOption1 = "//button[@data-autom='Browse by Product']/../../../../following-sibling::div//ul/li[";
 	String BrowseByProductOption2 = "]/a/span";
-	
 	
 	public AccessoriesPage(){
 		PageFactory.initElements(driver, this);

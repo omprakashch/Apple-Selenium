@@ -13,7 +13,7 @@ import com.apple.qa.pages.ClearancePage;
 import com.apple.qa.pages.IPadPage;
 import com.apple.qa.pages.IPhonePage;
 import com.apple.qa.pages.MacPage;
-import com.apple.qa.pages.OnlyOnApplePage;
+import com.apple.qa.pages.VisionPage;
 import com.apple.qa.pages.StorePage;
 import com.apple.qa.pages.SupportPage;
 import com.apple.qa.pages.TVAndHomePage;
@@ -24,37 +24,37 @@ import io.qameta.allure.Step;
 
 public class CommonElements extends TestUtil{
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'store')]")
+	@FindBy(xpath = "//span[text()='Store']/ancestor::a")
 	WebElement StoreLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'mac')]")
+	@FindBy(xpath = "//span[text()='Mac']/ancestor::a")
 	WebElement MacLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'ipad')]")
+	@FindBy(xpath = "//span[text()='iPad']/ancestor::a")
 	WebElement IPadLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'iphone')]")
+	@FindBy(xpath = "//span[text()='iPhone']/ancestor::a")
 	WebElement IPhoneLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'watch')]")
+	@FindBy(xpath = "//span[text()='Watch']/ancestor::a")
 	WebElement WatchLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'airpods')]")
+	@FindBy(xpath = "//span[text()='Vision']/ancestor::a")
+	WebElement VisionLink;
+	
+	@FindBy(xpath = "//span[text()='AirPods']/ancestor::a")
 	WebElement AirPodsLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'tv-home')]")
+	@FindBy(xpath = "//span[text()='TV & Home']/ancestor::a")
 	WebElement TVAndHomeLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'services')]")
-	WebElement OnlyOnAppleLink;
-	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@href,'accessories')]")
+	@FindBy(xpath = "//span[text()='Accessories']/ancestor::a")
 	WebElement AccessoriesLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]//a[contains(@data-analytics-title,'support')]")
+	@FindBy(xpath = "//span[text()='Support']/ancestor::a")
 	WebElement SupportLink;
 	
-	@FindBy(xpath = "//nav[contains(@id,'globalnav')]/div/ul[contains(@class,'list')]/li")
+	@FindBy(xpath = "//*[@class='globalnav-link-text' or contains(@class,'globalnav-link-search') or contains(@class,'globalnav-link-bag')]")
 	List<WebElement> HeaderList;
 	
 	
@@ -102,9 +102,9 @@ public class CommonElements extends TestUtil{
 		return new TVAndHomePage();
 	}
 	
-	public OnlyOnApplePage clickOnlyOnApple(){
-		click(OnlyOnAppleLink,"OnlyOnAppleLink");
-		return new OnlyOnApplePage();
+	public VisionPage clickVision(){
+		click(VisionLink,"VisionLink");
+		return new VisionPage();
 	}
 	
 	public AccessoriesPage clickAccessories(){

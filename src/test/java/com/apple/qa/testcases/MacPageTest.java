@@ -35,16 +35,16 @@ public class MacPageTest  extends CommonElements{
 		ExecutionEndLog("verifyMacPageDisplayed");
 	}
 	
-	@Test(description = "Verifying Notebook Section Test")
+	@Test(description = "Verifying Laptop Section Test")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Test Case Description: Verify Notebook Section")
-	@Story("Story Name: To Check Notebook Section")
-	public void verifyNotebookSection(){
-		ExecutionStartLog("verifyNotebookSection");
+	@Description("Test Case Description: Verify Laptop Section")
+	@Story("Story Name: To Check Laptop Section")
+	public void verifyLaptopSection(){
+		ExecutionStartLog("verifyLaptopSection");
 		HomePage homePage = new HomePage();
 		MacPage macPage = homePage.clickMac();
-		Assert.assertTrue(macPage.isNotebookSectionPresent(), "Notebook Section Not Displayed");
-		ExecutionEndLog("verifyNotebookSection");
+		Assert.assertTrue(macPage.isLaptopSectionPresent(), "Laptop Section Not Displayed");
+		ExecutionEndLog("verifyLaptopSection");
 	}
 	
 	@Test(description = "Verifying Desktop Section Test")

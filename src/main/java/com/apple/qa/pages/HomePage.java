@@ -1,5 +1,6 @@
 package com.apple.qa.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,30 +11,29 @@ import io.qameta.allure.Step;
 
 public class HomePage extends CommonElements{
 	
-	@FindBy(xpath = "//div[@data-unit-id='iphone-13-pro']")
-	WebElement IPhone13ProSection;
+	@FindBy(xpath = "//div[@data-unit-id='iphone-14-pro']")
+	WebElement IPhone14ProSection;
 	
-	@FindBy(xpath = "//div[@data-unit-id='watch-series-7']")
+	@FindBy(xpath = "//div[contains(@data-unit-id,'watch-series-8')]")
 	WebElement WatchSection;
 	
 	@FindBy(xpath = "//div[@data-unit-id='mac-studio']")
 	WebElement MacStudioSection;
 	
-	@FindBy(xpath = "//div[@data-unit-id='ipad-air']")
-	WebElement IPadAirSection;
+	@FindBy(xpath = "//div[@data-unit-id='ipad-pro']")
+	WebElement IPadProSection;
 	
 	@FindBy(xpath = "//div[contains(@class,'tile-gift-card')]")
 	WebElement GiftCardSection;
 	
-	@FindBy(xpath = "//h2[contains(text(),'iPhone 13 Pro')]/../div/a[contains(text(),'Learn more')]")
-	WebElement LearnMoreLinkInIPhone13ProSection;
+	@FindBy(xpath = "//h2[contains(text(),'iPhone 14 Pro')]/../div/a[contains(text(),'Learn more')]")
+	WebElement LearnMoreLinkInIPhone14ProSection;
 	
 	@FindBy(xpath = "//figure[contains(@aria-label,'Unicef')]/..//a")
 	WebElement UkraineCrisisMessage;
 	
-	@FindBy(xpath = "//a[contains(@aria-label,'Shop iPhone 13 Pro')]")
-	WebElement ShopLinkInIPhone13ProSection;
-	
+	@FindBy(xpath = "//a[contains(@aria-label,'Buy iPhone 14 Pro')]")
+	WebElement BuyLinkInIPhone14ProSection;
 	
 	public HomePage(){
 		PageFactory.initElements(driver, this);
@@ -52,9 +52,9 @@ public class HomePage extends CommonElements{
 	}*/
 
 
-	@Step("getting IPhone13 Pro Section step... ")
-	public boolean isIPhone13ProPresent() {
-		return isElementPresent(IPhone13ProSection);
+	@Step("getting IPhone14 Pro Section step... ")
+	public boolean isIPhone14ProPresent() {
+		return isElementPresent(IPhone14ProSection);
 	}
 	
 	@Step("getting Watch Section step... ")
@@ -67,25 +67,25 @@ public class HomePage extends CommonElements{
 		return isElementPresent(MacStudioSection);
 	}
 
-	public boolean isLearnMorePresentInIPhone13ProSection() {
-		 return isElementPresent(LearnMoreLinkInIPhone13ProSection);
+	public boolean isLearnMorePresentInIPhone14ProSection() {
+		 return isElementPresent(LearnMoreLinkInIPhone14ProSection);
 	}
 
 	public String getUkraineCrisisMessage() {
 		return getText(UkraineCrisisMessage).trim();
 	}
 
-	public BuyIPhone13ProPage clickShopInIPhone13ProSection() {
-		click(ShopLinkInIPhone13ProSection,"ShopLinkInIPhone13ProSection");
-		return new BuyIPhone13ProPage();
+	public BuyIPhone14ProPage clickBuyInIPhone14ProSection() {
+		click(BuyLinkInIPhone14ProSection,"BuyLinkInIPhone14ProSection");
+		return new BuyIPhone14ProPage();
 	}
 
 	public boolean isGiftCardPresent() {
 		 return isElementPresent(GiftCardSection);
 	}
 
-	public boolean isIPadAirPresent() {
-		 return isElementPresent(IPadAirSection);
+	public boolean isIPadProPresent() {
+		 return isElementPresent(IPadProSection);
 	}
 
 }

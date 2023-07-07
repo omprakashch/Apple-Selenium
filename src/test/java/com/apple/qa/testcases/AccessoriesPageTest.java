@@ -23,7 +23,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
-public class AccessoriesPageTest  extends CommonElements{
+public class AccessoriesPageTest  extends TestBase{
 	
 	@Test(description = "Verifying Accessories Page Displayed Test")
 	@Severity(SeverityLevel.BLOCKER)
@@ -46,11 +46,11 @@ public class AccessoriesPageTest  extends CommonElements{
 		HomePage homePage = new HomePage();
 		AccessoriesPage accessoriesPage = homePage.clickAccessories();
 		accessoriesPage.clickBrowseByCategory();
-		Assert.assertTrue(accessoriesPage.getBrowseByCategory(1).equals("Made by Apple"), "Made By Apple Option Not Displayed");
-		Assert.assertTrue(accessoriesPage.getBrowseByCategory(2).equals("What’s New"), "What's New Option Not Displayed");
-		Assert.assertTrue(accessoriesPage.getBrowseByCategory(3).equals("Cases & Protection"), "Cases & Protection Option Not Displayed");
-		Assert.assertTrue(accessoriesPage.getBrowseByCategory(4).equals("Headphones & Speakers"), "Headphones & Speakers Option Not Displayed");
-		Assert.assertTrue(accessoriesPage.getBrowseByCategory(5).equals("Apple Watch Bands"), "Apple Watch Brands Option Not Displayed");
+		Assert.assertTrue(accessoriesPage.getBrowseByCategory(1).equals("What’s New"), "What's New Option Not Displayed");
+		Assert.assertTrue(accessoriesPage.getBrowseByCategory(2).equals("Made by Apple"), "Made By Apple Option Not Displayed");
+		Assert.assertTrue(accessoriesPage.getBrowseByCategory(3).equals("MagSafe"), "MagSafe Option Not Displayed");
+		Assert.assertTrue(accessoriesPage.getBrowseByCategory(4).equals("Power & Cables"), "Power & Cables Option Not Displayed");
+		Assert.assertTrue(accessoriesPage.getBrowseByCategory(5).equals("Cases & Protection"), "Cases & Protection Option Not Displayed");
 		ExecutionEndLog("verifyBrowseByCategoryOptions");
 	}
 	

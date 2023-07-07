@@ -48,6 +48,7 @@ public class StorePageTest  extends CommonElements{
 		Assert.assertTrue(storePage.getQuickLink(1).equals("Order Status"), "Order Status Link Not Displayed");
 		Assert.assertTrue(storePage.getQuickLink(2).equals("Shopping Help"), "Shopping Help Link Not Displayed");
 		Assert.assertTrue(storePage.getQuickLink(3).equals("Returns"), "Returns Link Not Displayed");
+		Assert.assertTrue(storePage.getQuickLink(4).equals("Your Saves"), "Your Saves Link Not Displayed");
 		ExecutionEndLog("verifyQuickLinks");
 	}
 	

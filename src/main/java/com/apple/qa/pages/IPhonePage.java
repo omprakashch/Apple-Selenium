@@ -7,21 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 import com.apple.qa.util.CommonElements;
 
 public class IPhonePage extends CommonElements{
-	
-	@FindBy(xpath = "//div[@id='compare-gallery-notebook']")
-	WebElement NotebookSection;
-	
-	@FindBy(xpath = "//span[text()='Desktop']/..")
-	WebElement DesktopTab;
-	
+		
 	@FindBy(xpath = "//section[contains(@class,'accessories')]/div[1]")
 	WebElement FeaturedAccessoriesSection;
 	
 	@FindBy(xpath = "//section[contains(@class,'accessories')]/h2")
 	WebElement FeaturedAccessoriesText;
 	
-	@FindBy(xpath = "//a[contains(text(),'Find your deal')]")
-	WebElement FindYourDealButton;
+	@FindBy(xpath = "//h2[contains(text(),'Ways to save')]")
+	WebElement WaysToSaveIphone;
 	
 	@FindBy(xpath = "//div[contains(@data-analytics-section-engagement,'name:daily cash back with apple card')]/div[1]//h3")
 	WebElement InstallmentText;
@@ -37,7 +31,7 @@ public class IPhonePage extends CommonElements{
 	}
 	
 	public String getInstallmentMessage() {
-		scrollToAndView(FindYourDealButton,true);
+		scrollToAndView(WaysToSaveIphone,true);
 		return getText(InstallmentText).replaceAll("\\s+", " ").trim();
 	}
 

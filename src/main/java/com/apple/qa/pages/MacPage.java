@@ -9,7 +9,7 @@ import com.apple.qa.util.CommonElements;
 public class MacPage extends CommonElements{
 	
 	@FindBy(xpath = "//div[@id='compare-gallery-notebook']")
-	WebElement NotebookSection;
+	WebElement LaptopSection;
 	
 	@FindBy(xpath = "//span[text()='Desktop']/..")
 	WebElement DesktopTab;
@@ -28,9 +28,9 @@ public class MacPage extends CommonElements{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public boolean isNotebookSectionPresent() {
+	public boolean isLaptopSectionPresent() {
 		scrollToAndView(WhichMacText,true);
-		return isElementPresent(NotebookSection);
+		return isElementPresent(LaptopSection);
 	}
 	
 	public boolean isDesktopSectionPresent() {

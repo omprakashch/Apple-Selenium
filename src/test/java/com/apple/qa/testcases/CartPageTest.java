@@ -9,12 +9,12 @@ import com.apple.qa.pages.AirPodsPage;
 import com.apple.qa.pages.AppleWatchNikePage;
 import com.apple.qa.pages.BuyAirPodsMaxPage;
 import com.apple.qa.pages.BuyAppleWatchNikePage;
-import com.apple.qa.pages.BuyIPadMiniPage;
+import com.apple.qa.pages.BuyIPadPage;
 import com.apple.qa.pages.BuyIPadProPage;
 import com.apple.qa.pages.BuyMacStudioPage;
 import com.apple.qa.pages.CartPage;
 import com.apple.qa.pages.HomePage;
-import com.apple.qa.pages.IPadMiniAccessoriesPage;
+import com.apple.qa.pages.IPadAccessoriesPage;
 import com.apple.qa.pages.IPadPage;
 import com.apple.qa.pages.IPadProAccessoriesPage;
 import com.apple.qa.pages.MacPage;
@@ -39,7 +39,7 @@ public class CartPageTest  extends CommonElements{
 		HomePage homePage = new HomePage();
 		MacPage macPage = homePage.clickMac();
 		BuyMacStudioPage buyMacStudioPage = macPage.clickBuyInMacStudioSection();
-		MacStudioPage macStudioPage = buyMacStudioPage.selectMacStudio("M1 Max");
+		MacStudioPage macStudioPage = buyMacStudioPage.selectMacStudio("Max");
 		buyMacStudioPage = macStudioPage.selectMacStudioWithConfiguration("24-core","32GB","512GB","None","None");
 		MacStudioAccessoriesPage macStudioAccessoriesPage = buyMacStudioPage.clickAddToBag();
 		CartPage cartPage = macStudioAccessoriesPage.clickReviewBag();
@@ -84,19 +84,19 @@ public class CartPageTest  extends CommonElements{
 		ExecutionEndLog("verifyAirPodsMaxAndAppleCareAddedToCart");
 	}
 	
-	@Test(description = "Verifying IPad Mini Added To Cart Test")
+	@Test(description = "Verifying IPad Added To Cart Test")
 	@Severity(SeverityLevel.NORMAL)
-	@Description("Test Case Description: Verify IPad Mini Added To Cart")
-	@Story("Story Name: To Check IPad Mini Added To Cart")
-	public void verifyIPadMiniAddedToCart(){
-		ExecutionStartLog("verifyIPadMiniAddedToCart");
+	@Description("Test Case Description: Verify IPad Added To Cart")
+	@Story("Story Name: To Check IPad Added To Cart")
+	public void verifyIPadAddedToCart(){
+		ExecutionStartLog("verifyIPadAddedToCart");
 		HomePage homePage = new HomePage();
 		IPadPage iPadPage = homePage.clickIPad();
-		BuyIPadMiniPage buyIPadMiniPage = iPadPage.clickBuyInIPadMiniSection();
-		buyIPadMiniPage.selectIPadMiniWithConfiguration("Space Gray","64","Wi-Fi","No");
-		IPadMiniAccessoriesPage iPadMiniAccessoriesPage = buyIPadMiniPage.clickAddToBag();
-		CartPage cartPage = iPadMiniAccessoriesPage.clickReviewBag();
-		Assert.assertTrue(cartPage.getProductName(1).contains("iPad mini"), "IPad Mini Not Added To Cart");
+		BuyIPadPage buyIPadPage = iPadPage.clickBuyInIPadSection();
+		buyIPadPage.selectIPadWithConfiguration("Space Gray","64","Wi-Fi","No");
+		IPadAccessoriesPage iPadAccessoriesPage = buyIPadPage.clickAddToBag();
+		CartPage cartPage = iPadAccessoriesPage.clickReviewBag();
+		Assert.assertTrue(cartPage.getProductName(1).contains("iPad"), "iPad Not Added To Cart");
 		ExecutionEndLog("verifyIPadMiniAddedToCart");
 	}
 	
