@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.apple.qa.util.CommonElements;
 
-public class BuyIPhone13ProPage extends CommonElements{
+public class BuyIPhone14ProPage extends CommonElements{
 	
 	@FindBy(xpath = "//button[@title='Continue']")
 	WebElement ContinueButton;
@@ -43,16 +43,16 @@ public class BuyIPhone13ProPage extends CommonElements{
 
 	
 	
-	public BuyIPhone13ProPage(){
+	public BuyIPhone14ProPage(){
 		PageFactory.initElements(driver, this);
 	}
 
-	public BuyIPhoneAppleStorePage selectIPhone13ProWithConfiguration(String model, String color, String capacity, String carrier,
+	public BuyIPhoneAppleStorePage selectIPhone14ProWithConfiguration(String model, String color, String capacity, String carrier,
 			String smartPhoneOption, String paymentOption, String coverage) {
 		String size = null;
-		if(model.equals("iPhone 13 Pro"))
+		if(model.equals("iPhone 14 Pro"))
 		size = "6_1inch";
-		else if(model.equals("iPhone 13 Pro Max"))
+		else if(model.equals("iPhone 14 Pro Max"))
 		size = "6_7inch";
 		clickSize(size,model);
 		clickColor(color);

@@ -1,0 +1,120 @@
+Cucumber Design:
+
+*src/main/java
+--com.pages
+---LoginPage.java
+--com.qa.factory
+---Driverfactory.java
+--com.qa.util
+---ConfigReader.java
+---ElementUtil.java
+---Constants.java
+*src/test/java
+--AppHooks
+---ApplicationHooks.java
+--stepdefinitions
+---LoginPageSteps.java
+--testrunners
+---MyTestRunner.java
+*src/test/resources
+--AppFeatures
+---LoginPage.feature
+--config
+---config.properties
+--cucumber.properties (cucumber.publish.enabled = true command should be given to generate UI report) 
+
+Keywords:
+
+*Background:It is the keyword used in feature file to mention the steps that need to be executed before each and every scenario.
+*Datatable:
+1)It is used in feature file to pass the data.Here the data can be passed as either key value pairs or list.
+2)Data provider files such as excel,json can be avoided and instead Data table can be used in cucumber to pass the data to stepdefinition 
+files from feature file itself.
+
+Components:
+*Feature file:This is the file in which we write test steps using gherkin keywords like Given,AND,WHEN,THEN
+*Feature file will have two sections:
+*Feature which is nothing but module
+*Scenario which is nothing but test case
+*Feature : Here we will specify feature or module
+*Scenario: Here we will write test steps using gherkin keywords like Given,AND,WHEN,THEN
+*Step Definition file:This is the file where we write logic using some programming language for the gherkin keywords present for a particular test case in feature file
+*Test runner file: This is the file where we specify feature file,stepdefinition file,report features for running the test cases and generating the report
+
+Test runner sample:
+@RunWith(Cucumber.class)
+@CucumberOptions(
+          features = {"src/test/resources/AppFeatures"},
+          glue = {"stepdefinitions","AppHooks"},
+          plugin = {"pretty"}
+       )
+public class MyTestRunner {
+}
+
+*Tags in feature file:Tags are used in cucumber to group the scenarios under one particular category.This is helpful to execute or ignore certain set of scenarios.
+
+*Timeline Plugin:It should be given in runner file at the time of parallel execution to get the details like how many threads got opened at the time of execution 
+and what scenarios got executed in which thread.
+
+*For running the test cases from maven,we need to pass runner file in configuration tag of pom.xml.This has to be done in both Cucumber with Junit as well as Cucumber 
+with TestNG
+
+*Parallel Execution can be achieved only at feature file level using Cucumber with Junit.
+
+*Cucumber with TestNG helps us to achieve parallel execution at scenario level.For this we need to make slight changes to framework like placing stepdefinitions,
+applicationhooks,runner file under same package(parallel) of src/test/java folder and placing features under parallel folder of src/test/resources
+
+*scenario outline:
+1)Scenario out line is used to run the same scenario with multiple set of test data.
+2)Along with scenario out line we need to use "Examples:" keyword as well where we specify data such as sheetname and rownumber etc.
+3)We can fetch test data as per the data present under "Examples:" keyword.
+4)For example, if we have three rows under "Examples:" keyword then the same scenario will be executed in three separate browsers with three different sets of test data
+
+*Excel dependancies:apache-poi,poi-ooxml are the dependancies that are required to work with excel sheet
+
+*Steps to rerun the failed scenarios:
+1)Configure ParallelRun.java with rerun plugin and give run for the same.Rerun plugin generates .txt file after the execution
+2)Generated .txt file will have line number of failed scenario
+3)Create FailedRun.java and provide similar configurations as that of ParallelRun.java
+4)Only thing that should be different in FailedRun.java from ParallelRun.Java is the value of features.
+5)Value of features in FailedRun.java should be @target/failedrerun.txt
+6)Give run for FailedRun.java which executes only the scenarios failed in the first run.
+
+*I am aware of Cucumber report,Spark Extent html report and spark pdf as well
+
+*Ways to skip the scenarios 
+There are three ways to skip the scenarios from execution
+
+First way : By including "tags" key in runner file
+Steps:
+1)Add tags like @Smoke,@Skip etc for the scenarios present in feature file
+2)Add tags = "not @Skip" in test runner file so that all the scenarios with @Skip tag will be ignored or skipped
+
+Second way: By providing the proper command in command prompt or terminal
+Steps:
+1)Add tags like @Smoke,@Skip etc for the scenarios present in feature file
+2)Open command prompt or terminal and give the command mvn test -DCucumber.options="--tags '@Login and not @Skip'" so that all the 
+scenarios with @Skip tag will be ignored or skipped
+3)Here @Login is the tag that is given at feature level and the other tags such as @Smoke,@Skip are given at scenario level
+
+Third way: By adding a separate method in application hooks and providing the order number as "0" for the same
+Steps:
+1)Add Separate method in application hooks and provide order number as "0" so that it will be executed first and checks for all the skipped or ignored scenarios 
+2)Give a run for runner file with out mentioning any thing related to tags
+3)All the scenarios with @Skip tag will be ignored or skipped by the method written in application hooks and the other scenarios will be executed
+
+Serenity BDD:
+*Serenity BDD is an open source library that aims to make the idea of living documentation a reality
+*It helps to write cleaner and more maintainable acceptance and regression tests faster
+*It also uses the test results to produce illustrated,narrative reports that document and describe what your application does and how it works
+
+Configuration to generate Serenity report with Cucumber framework:
+1)Add Serenity.properties file to the project with below message in it:
+**serenity.project.name= Serenity and Cucumber Quick Start
+**Here Serenity and Cucumber Quick Start is the Report Name
+2)Add the required dependancies such as serenity core,serenity junit,Serenity ensure and Serenity Cucumber6 in pom.xml
+3)Create MySerenityTestRunner.java file with @RunWith(CucumberWithSerenity.class) and pass the file name to surefire plugin in pom.xml 
+which is responsible to run the test cases
+4)Add Serenity-maven-plugin which takes the help of serenity core and generates serenity report for us
+5)Give run for MySerenityTestRunner.java either from eclipse or from maven
+6)Proper Serenity report will be generated with the detailed information once we are done with the execution

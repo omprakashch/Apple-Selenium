@@ -6,12 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.apple.qa.util.CommonElements;
 
-public class IPadMiniAccessoriesPage extends CommonElements{
+public class IPadAccessoriesPage extends CommonElements{
 	
 	@FindBy(xpath = "//button[text()='Review Bag']")
 	WebElement ReviewBag;
 	
-	public IPadMiniAccessoriesPage(){
+	public IPadAccessoriesPage(){
 		PageFactory.initElements(driver, this);
 	}
 

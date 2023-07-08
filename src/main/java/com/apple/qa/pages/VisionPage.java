@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.apple.qa.util.CommonElements;
 
-public class OnlyOnApplePage extends CommonElements{
+public class VisionPage extends CommonElements{
 	
 	@FindBy(xpath = "//nav[contains(@id,'chapternav')]/div/ul[contains(@class,'items')]/li")
 	List<WebElement> OnlyOnAppleHeaderList;
@@ -20,7 +20,7 @@ public class OnlyOnApplePage extends CommonElements{
 	WebElement ExperiencesText;
 	
 	
-	public OnlyOnApplePage(){
+	public VisionPage(){
 		PageFactory.initElements(driver, this);
 	}
 

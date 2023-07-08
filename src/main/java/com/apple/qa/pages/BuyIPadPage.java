@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.apple.qa.util.CommonElements;
 
-public class BuyIPadMiniPage extends CommonElements{
+public class BuyIPadPage extends CommonElements{
 	
 	@FindBy(xpath = "//span[contains(text(),'Apple Pencil')]/parent::button/following-sibling::div//span[contains(text(),'Add')]")
 	WebElement ApplePencilAddButton;
@@ -33,11 +33,11 @@ public class BuyIPadMiniPage extends CommonElements{
 	@FindBy(xpath = "//button[@name='add-to-cart']")
 	WebElement AddToBagButton;
 	
-	public BuyIPadMiniPage(){
+	public BuyIPadPage(){
 		PageFactory.initElements(driver, this);
 	}
 
-	public void selectIPadMiniWithConfiguration(String color, String storage, String connectivity,
+	public void selectIPadWithConfiguration(String color, String storage, String connectivity,
 			String engraveOption) {
 		selectColor(color);
 		selectStorage(storage);
@@ -69,11 +69,11 @@ public class BuyIPadMiniPage extends CommonElements{
 	}
 
 
-	public IPadMiniAccessoriesPage clickAddToBag() {
+	public IPadAccessoriesPage clickAddToBag() {
 		//driver.navigate().refresh();
 		scrollToAndView(CheckAvailabilityLink,true);
 		click(AddToBagButton,"AddToBagButton");	
-		return new IPadMiniAccessoriesPage();
+		return new IPadAccessoriesPage();
 	}
 
 }
