@@ -1,0 +1,48 @@
+##Automation Setup: 
+*Download eclipse (https://www.eclipse.org/downloads/packages/release/neon/3) or (https://www.eclipse.org/downloads/packages/release/oxygen/3a/eclipse-ide-java-developers)
+*Download and install JDK 1.8 (https://www.oracle.com/java/technologies/downloads/#java8-windows)
+*Download Chrome driver for chrome version installed in the machine
+*Download Maven
+*Set environment variables for JDK and Maven under System Variables
+JDK: 
+Variable : JAVA_Home
+Value : C:\Program Files\Java\jdk1.8.0_311 after clickig on add
+
+Variable : Path
+Value :%JAVA_HOME%\bin after clicking on edit for Path
+
+Maven:
+Variable : Maven_Home
+Value : C:\apache-maven-3.5.0 after clickig on add
+
+Variable : M2_HOME
+Value : C:\apache-maven-3.5.0 after clickig on add
+
+Variable : Path
+Value : %Maven_Home%\bin after clicking on edit of Path
+*Add TestNG and M2E plugins to eclipse from marketplace
+
+##Process to Have the project in GIT:
+*Create an account in GIT 
+*Create a repository in GIT
+*Create a Personal Access Token by navigating to below link:
+https://github.com/settings/tokens
+*Clone the repository in eclipse using https link and provide the below details while cloning
+**UserName= Git UserName
+**Password= Generated Personal Access Token
+*Then Open Package explorer,create a maven project
+*Once maven project is done, add it to index, commit and push it to remote GIT
+
+##Jenkins Setup
+*Download Jenkins war file from below link:
+https://www.jenkins.io/download/
+*Create a new foler for the same and move the downloaded jenkins war file to that folder
+*Open command prompt and navigate to the jenkins foler and provide the below command
+**java -jar jenkins.war
+*Then one password will be created and give that password by navigating to localhost:8080 in chrome browser
+*Then select install suggested plugins
+*With tha all the plugins will download and getting started page will open
+*Provide all the required details in that page and clikc on save and finish
+*With that jenkins is ready
+
+
